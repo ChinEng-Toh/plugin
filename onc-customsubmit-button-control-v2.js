@@ -99,7 +99,7 @@ export class OncCustomSubmitButtonControlV2 extends LitElement {
     this.submitFlag = false;
     this.tooltip = "";
     this._userClickedSubmit = false;
-    console.log("[CustomSubmitV2] v2.0.1 loaded - userClickedSubmit gate active");
+    console.log("[CustomSubmitV2] v2.0.2 loaded - userClickedSubmit gate active");
   }
 
   render() {
@@ -125,10 +125,13 @@ export class OncCustomSubmitButtonControlV2 extends LitElement {
 
   updated(changedProperties) {
     if (changedProperties.has('submitFlag')) {
-      if (this.submitFlag == true && this._userClickedSubmit) {
+      if (this.submitFlag == true) {
+        const shouldSubmit = this._userClickedSubmit;
         this._userClickedSubmit = false;
         this.submitFlag = false;
-        this._triggerFormSubmission();
+        if (shouldSubmit) {
+          this._triggerFormSubmission();
+        }
       }
     }
   }
