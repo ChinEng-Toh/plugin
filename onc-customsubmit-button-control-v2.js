@@ -99,7 +99,6 @@ export class OncCustomSubmitButtonControlV2 extends LitElement {
     this.submitFlag = false;
     this.tooltip = "";
     this._userClickedSubmit = false;
-    console.log("[CustomSubmitV2] v2.0.2 loaded - userClickedSubmit gate active");
   }
 
   render() {
